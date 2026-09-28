@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MindScope AI | Student Mental Health Score Prediction</title>
+  <meta name="description" content="Machine-learning estimate of a student's mental-health score from lifestyle, academic and digital-behavior patterns.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#predict-form">Skip to the form</a>
+
+  <header class="hero">
+    <span class="badge">AI-Powered Prediction</span>
+    <h1>MindScope AI</h1>
+    <p class="hero-subtitle">Student Mental Health Score Prediction</p>
+    <p class="hero-copy">This application uses a machine-learning model to estimate a student's mental-health score from lifestyle, academic, and digital-behavior patterns. Enter a profile to see the model's estimate.</p>
+  </header>
+
+  <main class="layout">
+    <form id="predict-form" class="form-column" novalidate>
+      <section class="card" aria-labelledby="profile-title">
+        <div class="card-head">
+          <h2 id="profile-title">Personal profile</h2>
+          <p>Background details about the student.</p>
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label for="age">Age</label>
+            <input id="age" name="age" type="number" inputmode="numeric" min="14" max="45" step="1" placeholder="21" aria-describedby="hint-age err-age">
+            <p class="hint" id="hint-age">In years, 14 to 45.</p>
+            <p class="field-error" id="err-age"></p>
+          </div>
+          <div class="field">
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender" aria-describedby="err-gender">
+              <option value="">Select gender</option>
+              <option>Male</option><option>Female</option>
+            </select>
+            <p class="field-error" id="err-gender"></p>
+          </div>
+          <div class="field">
+            <label for="country">Country</label>
+            <select id="country" name="country" aria-describedby="err-country">
+              <option value="">Select country</option>
+              <option>India</option><option>USA</option><option>Canada</option><option>Australia</option>
+              <option>UK</option><option>Germany</option><option>Mexico</option><option>Turkey</option>
+              <option>France</option><option>Other</option>
+            </select>
+            <p class="field-error" id="err-country"></p>
+          </div>
+          <div class="field">
+            <label for="academic_level">Academic level</label>
+            <select id="academic_level" name="academic_level" aria-describedby="err-academic_level">
+              <option value="">Select level</option>
+              <option>High School</option><option>Undergraduate</option><option>Graduate</option>
+            </select>
+            <p class="field-error" id="err-academic_level"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="digital-title">
+        <div class="card-head">
+          <h2 id="digital-title">Digital behaviour</h2>
+          <p>How the student uses social media and their phone.</p>
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label for="most_used_platform">Most used platform</label>
+            <select id="most_used_platform" name="most_used_platform" aria-describedby="err-most_used_platform">
+              <option value="">Select platform</option>
+              <option>Instagram</option><option>TikTok</option><option>YouTube</option><option>WhatsApp</option>
+              <option>Facebook</option><option>Snapchat</option><option>Twitter</option><option>LinkedIn</option>
+              <option>WeChat</option><option>LINE</option><option>KakaoTalk</option><option>VKontakte</option>
+            </select>
+            <p class="field-error" id="err-most_used_platform"></p>
+          </div>
+          <div class="field">
+            <label for="purpose_of_use">Purpose of use</label>
+            <select id="purpose_of_use" name="purpose_of_use" aria-describedby="err-purpose_of_use">
+              <option value="">Select purpose</option>
+              <option>Entertainment</option><option>Education</option><option>Networking</option><option>News</option>
+            </select>
+            <p class="field-error" id="err-purpose_of_use"></p>
+          </div>
+          <div class="field">
+            <label for="avg_daily_usage_hours">Average daily usage (hours)</label>
+            <input id="avg_daily_usage_hours" name="avg_daily_usage_hours" type="number" inputmode="decimal" min="0" max="18" step="0.1" placeholder="5.5" aria-describedby="hint-usage err-avg_daily_usage_hours">
+            <p class="hint" id="hint-usage">Hours per day, 0 to 18.</p>
+            <p class="field-error" id="err-avg_daily_usage_hours"></p>
+          </div>
+          <div class="field">
+            <label for="daily_unlocks">Daily phone unlocks</label>
+            <input id="daily_unlocks" name="daily_unlocks" type="number" inputmode="numeric" min="0" max="500" step="1" placeholder="65" aria-describedby="hint-unlocks err-daily_unlocks">
+            <p class="hint" id="hint-unlocks">Times per day, 0 to 500.</p>
+            <p class="field-error" id="err-daily_unlocks"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="lifestyle-title">
+        <div class="card-head">
+          <h2 id="lifestyle-title">Lifestyle &amp; academic habits</h2>
+          <p>Typical day-to-day routine.</p>
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label for="study_hours">Study hours per day</label>
+            <input id="study_hours" name="study_hours" type="number" inputmode="decimal" min="0" max="16" step="0.1" placeholder="4" aria-describedby="hint-study err-study_hours">
+            <p class="hint" id="hint-study">Hours, 0 to 16.</p>
+            <p class="field-error" id="err-study_hours"></p>
+          </div>
+          <div class="field">
+            <label for="physical_activity_hours">Physical activity hours per day</label>
+            <input id="physical_activity_hours" name="physical_activity_hours" type="number" inputmode="decimal" min="0" max="8" step="0.1" placeholder="1" aria-describedby="hint-activity err-physical_activity_hours">
+            <p class="hint" id="hint-activity">Hours, 0 to 8.</p>
+            <p class="field-error" id="err-physical_activity_hours"></p>
+          </div>
+          <div class="field">
+            <label for="sleep_hours_per_night">Sleep hours per night</label>
+            <input id="sleep_hours_per_night" name="sleep_hours_per_night" type="number" inputmode="decimal" min="2" max="14" step="0.1" placeholder="7" aria-describedby="hint-sleep err-sleep_hours_per_night">
+            <p class="hint" id="hint-sleep">Hours, 2 to 14.</p>
+            <p class="field-error" id="err-sleep_hours_per_night"></p>
+          </div>
+          <fieldset class="field" id="stress-group" aria-describedby="err-stress_level">
+            <legend>Stress level</legend>
+            <div class="segmented">
+              <input type="radio" id="stress-low" name="stress_level" value="Low"><label for="stress-low">Low</label>
+              <input type="radio" id="stress-medium" name="stress_level" value="Medium"><label for="stress-medium">Medium</label>
+              <input type="radio" id="stress-high" name="stress_level" value="High"><label for="stress-high">High</label>
+              <input type="radio" id="stress-very-high" name="stress_level" value="Very High"><label for="stress-very-high">Very High</label>
+            </div>
+            <p class="field-error" id="err-stress_level"></p>
+          </fieldset>
+        </div>
+      </section>
+
+      <button type="submit" class="cta" id="submit-btn">
+        <span class="spinner" aria-hidden="true"></span>
+        <span class="cta-label">Analyze My Score</span>
+      </button>
+    </form>
+
+    <aside class="card results" id="results" data-state="idle" aria-live="polite" aria-labelledby="results-title">
+      <div class="state state-idle">
+        <h2 id="results-title">Your result</h2>
+        <p>Complete the profile and select <strong>Analyze My Score</strong>. The model's estimate and a summary of your inputs will appear here.</p>
+      </div>
+
+      <div class="state state-loading" role="status">
+        <span class="spinner spinner-lg" aria-hidden="true"></span>
+        <p>Analyzing your profile...</p>
+      </div>
+
+      <div class="state state-error">
+        <h2>Prediction unavailable</h2>
+        <p id="error-message"></p>
+      </div>
+
+      <div class="state state-success">
+        <h2 id="result-heading" tabindex="-1">Predicted mental health score</h2>
+        <div class="gauge">
+          <svg viewBox="0 0 220 220" aria-hidden="true">
+            <defs>
+              <linearGradient id="gauge-gradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" class="stop-a"/><stop offset="1" class="stop-b"/>
+              </linearGradient>
+            </defs>
+            <circle class="gauge-track" cx="110" cy="110" r="94"/>
+            <circle class="gauge-progress" id="gauge-progress" cx="110" cy="110" r="94" pathLength="100" stroke-dasharray="0 100" transform="rotate(-90 110 110)"/>
+          </svg>
+          <div class="gauge-value">
+            <span class="gauge-number" id="score-number">0</span>
+            <span class="gauge-max" id="score-max">/ 10</span>
+          </div>
+        </div>
+        <div class="interpretation">
+          <span class="band-pill" id="band-label"></span>
+          <p id="band-text"></p>
+        </div>
+        <p class="disclaimer">This prediction is generated by a machine-learning model for educational purposes and is not a medical diagnosis. Score ranges are a simple interpretation of the model output.</p>
+
+        <h3>Submitted profile</h3>
+        <div class="insights" id="insights"></div>
+
+        <h3>Lifestyle snapshot</h3>
+        <div class="bars" id="bars"></div>
+        <p class="hint">Bars show each submitted value as a share of a 24-hour day. They describe the inputs only and do not imply a cause-and-effect relationship.</p>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="footer">MindScope AI is an educational machine-learning project. It does not provide medical advice.</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
