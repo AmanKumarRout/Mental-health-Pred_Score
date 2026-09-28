@@ -1,6 +1,6 @@
 FastAPI
 uvicorn
 pydantic
-joblub
+joblib
 pandas
-scikitLearn
+scikit-learn
