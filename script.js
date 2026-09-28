@@ -1,6 +1,6 @@
 "use strict";
 
-const API_URL = "http://127.0.0.1:8000/predict";
+const API_URL = "https://mental-health-pred-score.onrender.com";
 const REQUEST_TIMEOUT_MS = 15000;
 // Upper bound of the score scale used for the gauge.
 const SCORE_MAX = 10;
