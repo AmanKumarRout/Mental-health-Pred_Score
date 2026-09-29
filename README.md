@@ -7,13 +7,13 @@
 🔗 **Backend API:** `https://mental-health-pred-score.onrender.com/`
 
 
-![Webiste Screenshot](Screenshot 2026-09-29 214952.png)
+![Website Screenshot](Screenshot%202026-09-29%20214952.png)
 
 
-![Webiste Screenshot](Screenshot 2026-09-29 215006.png)
+![Website Screenshot](Screenshot%202026-09-29%20215006.png)
 
 
-![Webiste Screenshot](Screenshot 2026-09-29 215229.png)
+![Website Screenshot](Screenshot%202026-09-29%20215229.png)
 
 ---
 
